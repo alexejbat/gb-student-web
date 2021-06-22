@@ -16,7 +16,7 @@ body {
 }
 
 .container {
-    width: 1140px;
+    max-width: 1140px;
     margin: 0 auto;
 }
 
@@ -360,6 +360,7 @@ a {
     padding-left: 12px;
 }
 
+
 .text__first__logo {
     color: #222222;
     font-size: 60px;
@@ -424,6 +425,76 @@ a {
     width: 560px;
     height: 542px;
     transition: all .5s;
+
+}
+
+
+.box__left__man:hover {
+    animation: saleAnim 1s ease 0s 1 normal both;
+    transition: all .1s;
+}
+
+.box__right__kidz:hover {
+    animation: saleKid 1s ease 0s 1 normal both;
+    ;
+}
+
+.box__right__women:hover {
+    animation: saleWomen 1s ease 0s 1 normal both;
+    ;
+}
+
+.box__left__accessories:hover {
+    animation: saleAcc 1s ease 0s 1 normal both;
+}
+
+@keyframes saleAcc {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1) translateX(0) translateY(0);
+    }
+
+    100% {
+        box-shadow: 12px -12px 20px -12px rgba(0, 0, 0, 0.35);
+        transform: scale(1.1) translateX(-12px) translateY(12px);
+    }
+}
+
+@keyframes saleWomen {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1) translateX(0);
+    }
+
+    100% {
+        box-shadow: -12px 0 20px -12px rgba(0, 0, 0, 0.35);
+        transform: scale(1.1) translateX(12px);
+    }
+}
+
+@keyframes saleKid {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1) translateX(0) translateY(0);
+    }
+
+    100% {
+        box-shadow: -12px -12px 20px -12px rgba(0, 0, 0, 0.35);
+        transform: scale(1.1) translateX(12px) translateY(12px);
+    }
+}
+
+@keyframes saleAnim {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1) translateX(0) translateY(0);
+    }
+
+    100% {
+        box-shadow: 12px 12px 20px -12px rgba(0, 0, 0, 0.35);
+        transform: scale(1.05) translateX(-12px) translateY(-12px);
+    }
 }
 
 .box__right__women,
@@ -591,7 +662,87 @@ a {
     display: flex;
 }
 
+.item {
+    position: relative;
+    width: 263px;
+    margin-bottom: 40px;
+}
 
+.item:hover .box-add {
+    display: flex;
+}
+
+.item:hover {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16);
+}
+
+.product-img {
+    width: 100%;
+}
+
+.item:hover .product-img {
+    filter: brightness(50%);
+}
+
+.product {
+    width: 263px;
+    display: block;
+    text-decoration: none;
+}
+
+.box-product {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-text-box {
+    padding: 20px 15px;
+}
+
+.product-text {
+    color: #222222;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.product-price {
+    color: #f16d7f;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.box-add {
+    position: absolute;
+    top: 98px;
+    display: none;
+    justify-content: center;
+    width: 100%;
+}
+
+.add {
+    border: 1px solid #ffffff;
+    padding: 8px 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.add:hover {
+    box-shadow: 0 0 10px #fff;
+}
+
+.add-img {
+    margin-right: 7px;
+}
 
 .card__button__link {
     background-color: #f16d7f;
@@ -608,6 +759,56 @@ a {
     border: transparent 1px solid;
     transition: color .5s, background-color .5s;
 
+}
+
+.card__button__link:hover {
+    animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 1;
+        transform: translateY(-45px);
+    }
+
+    24% {
+        opacity: 1;
+    }
+
+    40% {
+        animation-timing-function: ease-in;
+        transform: translateY(-24px);
+    }
+
+    65% {
+        animation-timing-function: ease-in;
+        transform: translateY(-12px);
+    }
+
+    82% {
+        animation-timing-function: ease-in;
+        transform: translateY(-6px);
+    }
+
+    93% {
+        animation-timing-function: ease-in;
+        transform: translateY(-4px);
+    }
+
+    25%,
+    55%,
+    75%,
+    87% {
+        animation-timing-function: ease-out;
+        transform: translateY(0px);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
 .card__button__link i {
@@ -2142,19 +2343,44 @@ textarea {
     border: 1px solid #eaeaea;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .logo {
         margin-left: 32px;
+    }
+
+    .top__box {
+        justify-content: flex-start;
+        padding-left: 20px;
+    }
+
+    .top__box__right {
+        padding-left: 20px;
+    }
+
+    .top__logo p,
+    .top__logo span {
+
+        display: none;
     }
 
     .cart {
         margin-right: 32px;
     }
 
-    .top__brand {
-        height: 368px;
-        background-position: 397px;
-        background-size: 44%;
+    .brand__men {
+        background: url(img/banner.jpg) -350px -51px;
+    }
+
+
+    .text__first__logo {
+
+        font-size: 30px;
+
+    }
+
+    .text__last__logo {
+
+        font-size: 20px;
     }
 
     .top__img img {
@@ -2208,7 +2434,13 @@ textarea {
     .delivery__card {
         padding-top: 49px;
         padding-bottom: 49px;
+
     }
+
+    .card__box {
+        justify-content: space-around;
+    }
+
 
     .footer__subscribe {
         flex-direction: column;
@@ -2228,7 +2460,9 @@ textarea {
     }
 }
 
-@media (max-width: 375px) {
+
+
+@media screen and (max-width: 375px) {
     .logo {
         margin-left: 16px;
     }
